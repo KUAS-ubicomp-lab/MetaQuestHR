@@ -12,7 +12,9 @@ public class hyperateSocket : MonoBehaviour
 	// Put your websocket Token ID here
     public string websocketToken = "<Request your Websocket Token>"; //You don't have one, get it here https://www.hyperate.io/api
     public string hyperateID = "internal-testing";
-	// Textbox to display your heart rate in
+    // public string websocketToken = "A0k2PNhKWAKZTUW1KYceaZTiuOeKfnM3qY0vWltgmleuFXsr4CnmI20YMIfWIt6E"; //You don't have one, get it here https://www.hyperate.io/api
+    // public string hyperateID = "5ea111";
+    // Textbox to display your heart rate in
     Text textBox;
 	// Websocket for connection with Hyperate
     WebSocket websocket;
@@ -26,6 +28,7 @@ public class hyperateSocket : MonoBehaviour
         websocket.OnOpen += () =>
         {
             Debug.Log("Connection open!");
+            textBox.text = "Connecting to " + hyperateID + " ...";
             SendWebSocketMessage();
         };
 
